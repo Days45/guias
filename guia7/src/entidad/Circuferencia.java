@@ -40,7 +40,7 @@ public class Circuferencia {
         this.radio = (leer.nextDouble());
     }
     public double area(){
-        double Area=Math.pow((Math.PI*radio), 2);
+        double Area=Math.pow(radio, 2)*Math.PI;
         return Area;
     }
     public double perimetro(){

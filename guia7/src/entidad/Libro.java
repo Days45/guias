@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -73,11 +74,17 @@ public class Libro {
         System.out.println("Ingrese el numero de paginas");
         this.cantPg=leer.nextInt();
     }
-    public void mostrar(){
-        System.out.println("ISBN: "+ISBN);
-        System.out.println("Titulo: "+titulo);
-        System.out.println("Autor: "+autor);
-        System.out.println("Cantidad de paginas: "+cantPg);
+//    public void mostrar(){
+//        System.out.println("ISBN: "+ISBN);
+//        System.out.println("Titulo: "+titulo);
+//        System.out.println("Autor: "+autor);
+//        System.out.println("Cantidad de paginas: "+cantPg);
+//    }
+
+    @Override
+    public String toString() {
+        return "Libro{" + "ISBN=" + ISBN + ", titulo=" + titulo + ", autor=" + autor + ", cantPg=" + cantPg + '}';
     }
+    
     
 }

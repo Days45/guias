@@ -20,6 +20,7 @@ public class Empleado {
     private String nombre;
     private int edad;
     private double salario;
+    private int empleado;
 
     public Empleado() {
     }
@@ -60,10 +61,10 @@ public class Empleado {
             this.salario = leer.nextDouble();
             if (edad>30) {
                 salario=salario*1.1;
-                System.out.println("El aumento salarial del empleado "+nombre+" es de "+Math.round(salario*100.0)/100.0);
+                System.out.println("El aumento salarial del empleado "+nombre+" es de "+(double)(Math.round(salario*100.0)/100.0));
             } else if (edad>0 && edad<30) {
                 salario=salario*1.05;
-                System.out.println("El aumento salarial del empleado "+nombre+" es de "+Math.round(salario*100.0)/100.0);
+                System.out.println("El aumento salarial del empleado "+nombre+" es de "+(double)(Math.round(salario*100.0)/100.0));
             }
         }
     }

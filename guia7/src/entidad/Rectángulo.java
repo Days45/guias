@@ -43,8 +43,8 @@ public class Rectángulo {
     public void setLado2(float lado2) {
         this.lado2 = lado2;
     }
-    public void calcular_area()  {
+    public float calcular_area()  {
         float Area = lado1*lado2;
-        System.out.println("El area es "+Area);
+        return Area;     
     }
 }

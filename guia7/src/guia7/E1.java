@@ -20,6 +20,7 @@ public class E1 {
         // TODO code application logic here
         Cancion c1 = new Cancion();
         Cancion c2= new Cancion("Duality", "Set It Off");
+        //modifico c1 
         c1.setTitulo("Why Worry");
         c1.setAutor("Set It Off");
         System.out.println(c1);

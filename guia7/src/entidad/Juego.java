@@ -12,13 +12,12 @@ package entidad;
 
 import java.util.Scanner;
 
-
-
 /**
  *
  * @author castr
  */
 public class Juego {
+
     private int intentos;
     private int ingreso;
     private int numAdivinar;
@@ -39,41 +38,77 @@ public class Juego {
     public void setIntentos(int intentos) {
         this.intentos = intentos;
     }
-    public void iniciar_juego(){
-        Scanner leer= new Scanner(System.in);
-        System.out.println("Ingrese los intentos");
-        intentos=leer.nextInt();
-        System.out.println("-----------------------------------------");
-        System.out.println("Ingrese el numero a adivinar");
-        this.numAdivinar=leer.nextInt();
-        System.out.println("-----------------------------------------");
-        do {        
-            
-            System.out.println("Ingrese un numero");
-            this.ingreso=leer.nextInt();
-            
-            if (ingreso>numAdivinar) {
-                System.out.println("-----------------------------------------");
-                System.out.println("Mas bajo!!!!!!!!");
-                System.out.println("-----------------------------------------");
-            }else if (ingreso<numAdivinar) {
-                System.out.println("-----------------------------------------");
-                System.out.println("Mas alto!!!!!!!!");
-                System.out.println("-----------------------------------------");
+
+    public void iniciar_juego() {
+        Scanner leer = new Scanner(System.in);
+        int aci1 = 0, aci2 = 0, ronda = 2, nAci1 = 0, nAci2 = 0, sum1 = 0, sum2 = 0;
+
+        do {
+            //si es par el jugador 2 tiene que adivinar
+            if (ronda % 2 == 0) {
+                System.out.println("Ingrese los intentos del jugador 2");
+                intentos = leer.nextInt();
+                System.out.println("Ingrese el numero que tiene que adivinar el jugador 2");
+                this.numAdivinar = leer.nextInt();
+            } else { //si impar le toca al jugador 1 adivinar
+                System.out.println("Ingrese los intentos del jugador 1");
+                intentos = leer.nextInt();
+
+                System.out.println("Ingrese el numero que tiene que adivinar el jugador 1");
+                this.numAdivinar = leer.nextInt();
             }
-            intentos=intentos-1;
-            System.out.println("Te quedan "+intentos+" intentos");
-            System.out.println("-----------------------------------------");
-        } while (numAdivinar!=ingreso && intentos>0);
-        if (numAdivinar==ingreso) {
-            System.out.println("-----------------------------------------");
-            System.out.println("Adivinaste :D");
-        }else{
-            System.out.println("-----------------------------------------");
-            System.out.println("Fallaste!! :'(");
-        }
-        
+            //
+            while (numAdivinar != ingreso && intentos > 0) {
+                System.out.println("Ingrese un numero");
+                this.ingreso = leer.nextInt();
+                //pista
+                if (ingreso > numAdivinar) {
+                    System.out.println("Mas bajo!!!!!!!!");
+                } else if (ingreso < numAdivinar) {
+                    System.out.println("Mas alto!!!!!!!!");
+                }
+                //resto intentos
+                intentos = intentos - 1;
+                //muestro los intentos
+                System.out.println("Te quedan " + intentos + " intentos");
+                //cuentos los aciertos y no aciertos
+                if (ingreso == numAdivinar && ronda % 2 == 0) {
+                    aci1 += 1;
+                } else if (ingreso == numAdivinar && ronda % 2 != 0) {
+                    aci2 += 1;
+                } else if (ingreso != numAdivinar && ronda % 2 != 0) {
+                    nAci2 += 1;
+                } else if (ingreso != numAdivinar && ronda % 2 == 0) {
+                    nAci1 += 1;
+                }
+                //los sumo
+                sum1 = aci1 + nAci1;
+                sum2 = aci2 + nAci2;
+            }
+            
+            if (numAdivinar == ingreso) {
+                System.out.println("Adivino perro :v");
+            } else {
+                System.out.println("No adivino :(");
+            }
+            //muestro la cantidad dde intentos que necesito el jugador hasta acertar 
+            if (ingreso == numAdivinar && ronda % 2 == 0) {
+                System.out.println("Cantidad de intentos necesarios que tuvo hasta adivinar");
+                System.out.println("Jugador 2: " + sum1);
+            } else if (ingreso == numAdivinar && ronda % 2 != 0) {
+                System.out.println("Cantidad de intentos necesarios que tuvo hasta adivinar");
+                System.out.println("Jugador 1: " + sum2);
+            }
+            //resto la ronda
+            ronda = ronda - 1;
+
+        } while (ronda > 0);
+        System.out.println("El puntaje de veces ganadas por cada jugador es:");
+        System.out.println("Jugador 1: " + aci2);
+        System.out.println("Jugador 2: " + aci1);
+
+
+
     }
 
-    
 }

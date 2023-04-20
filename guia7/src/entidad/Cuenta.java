@@ -43,24 +43,31 @@ public class Cuenta {
         this.titular = titular;
     }
     
-    public void retirar_dinero(){
+    public void retirar_dinero() {
         Scanner leer = new Scanner(System.in);
         System.out.println("Ingrese el nombre del titular");
-        this.titular=leer.next();
-        System.out.println("Ingrese el saldo de la cuenta");
-        this.saldo=leer.nextFloat();
-        System.out.println("ingrese el dinero a retirar");
-        float retiro=leer.nextFloat();
-        if (saldo>=retiro) {
-            saldo=saldo-retiro;
-            System.out.println("Titular de la cuenta: "+titular);
-            System.out.println("Saldo actual: " +saldo);
-        }else{
-            System.out.println("Titular de la cuenta: "+titular);
-            System.out.println("Retiro: "+retiro);
-            System.out.println("Saldo de la cuenta: "+saldo);
-            System.out.println("El saldo es insuficiente para el retiro");
-        }
+        this.titular = leer.next();
+        this.saldo = (float) (Math.random() * 5000) + 1;
+        System.out.println("Su Saldo es: " + saldo);
+        float retiro;
+        String opcion = "si";
+        System.out.println("Saldo actual: " + saldo);
+        do {
+            System.out.println("Ingrese el monto de retiro");
+            retiro = leer.nextFloat();
+            if (saldo > retiro) {
+                saldo = saldo - retiro;
+
+                System.out.println("Titular de la cuenta: " + titular);
+                System.out.println("Saldo actual: " + saldo);
+            } else {
+                System.out.println("no se puede realizar la operacion. Supera el monto");
+                break;
+            }
+            System.out.println("Dese realizar otra operacion Si/No");
+            opcion = leer.next();
+
+        } while ("si".equalsIgnoreCase(opcion));
     }
-    
+
 }

@@ -21,11 +21,9 @@ public class E6 {
         // TODO code application logic here
         Scanner leer= new Scanner(System.in);
         Rectángulo rectangulo1= new Rectángulo(4,6);
-        rectangulo1.calcular_area();
-        Rectángulo rectangulo2= new Rectángulo();
-        rectangulo2.setLado1(7);
-        rectangulo2.setLado2(8);
-        rectangulo2.calcular_area();
+        System.out.println( "area del rectangulo:" + rectangulo1.calcular_area());
+        Rectángulo rectangulo2= new Rectángulo(leer.nextFloat(),leer.nextFloat());
+        System.out.println("area del rectangulo:" + rectangulo2.calcular_area()); 
         
         
         

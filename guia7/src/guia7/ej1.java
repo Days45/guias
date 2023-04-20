@@ -22,7 +22,9 @@ public class ej1 {
         Scanner leer =new Scanner(System.in);
         Libro l1=new Libro();
         l1.cargar();
-        l1.mostrar();
+        System.out.println(l1);
+//        l1.mostrar();
+
     }
     
 }

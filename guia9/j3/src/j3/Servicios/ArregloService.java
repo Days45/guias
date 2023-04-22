@@ -8,6 +8,7 @@ Crear la clase ArregloService, en el paquete servicio, con los siguientes métod
 package j3.Servicios;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  *
@@ -28,7 +29,11 @@ public class ArregloService {
     }
 //    Método ordenar recibe un arreglo por parámetro y lo ordena de mayor a menor.
     public void ordenar(Double[] vector){
-        Arrays.sort(vector);
+         Arrays.sort(vector, Collections.reverseOrder());
+        for (int i = vector.length; i >=0 ; i--) {
+           
+        }
+        
     }
 //Método inicializarB copia los primeros 10 números del arreglo A en el arreglo B.
 //Luego llenar las últimas 10 posiciones del arreglo B con 0.5

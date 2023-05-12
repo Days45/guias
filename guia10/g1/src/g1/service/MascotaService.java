@@ -43,27 +43,24 @@ public class MascotaService {
     }
     public void encontrar(){
         String buscar= ingreso();
-        int cont=0;
+        boolean bandera=false;
         Iterator<String>intr = mascotas.iterator() ;
         while (intr.hasNext()) {            
             if (intr.next().equals(buscar)) {
                 intr.remove();
+                bandera=true;
                 sort(mascotas);
+                System.out.println("------------");
                 mostrarMascotas();
-            }else{
-                cont++;
             }
         }
-        if (cont==mascotas.size()) {
+        if (!bandera) {
             System.out.println("El perro no se encuentra en la lista");
             System.out.println("La lista disponible");
             sort(mascotas);
             mostrarMascotas();
         }  
     }
-    //despues 
-    public void bucle(){
-        
-    }
+ 
    
 }

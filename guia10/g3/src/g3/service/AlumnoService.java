@@ -70,7 +70,7 @@ public class AlumnoService {
         for (int i = 0; i < aux.getNotas().size(); i++) {
             suma += aux.getNotas().get(i);
         }
-        promedio = suma / aux.getNotas().size();
+        promedio = (double)suma / aux.getNotas().size();
         return promedio;
     }
 

@@ -52,7 +52,7 @@ crear otra Pelicula o no.**/
             if (aux.getHoras()>1) {
                 System.out.println(aux);
             }
-        }
+        }//Arrays.sort(nombres, Collections.reverseOrder());
     }
     //Ordenar las películas de acuerdo a su duración (de mayor a menor) y mostrarlo en pantalla.
     public void ordenarDes() {

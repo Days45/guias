@@ -20,7 +20,6 @@ public class Guia5p2 {
         // TODO code application logic here
         PaisServicios ps= new PaisServicios();
         ps.cargarPais();
-        ps.mostrar();
         ps.eliminarPais();
     }
     

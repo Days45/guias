@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class PaisServicios {
 
     private Scanner leer;
-    private HashSet<String> paises;
+    private HashSet<Pais> paises;
 
     public PaisServicios() {
         this.leer = new Scanner(System.in).useDelimiter("\n");
@@ -27,33 +27,33 @@ public class PaisServicios {
 
     }
 
-    public Pais cargarPais() {
+    public void cargarPais() {
         String Respuesta = " ";
         String pais;
         do {
             System.out.println("Pais:");
             pais = leer.next();
-            paises.add(pais);
+            paises.add(new Pais(pais));
             System.out.println("Desea seguir?");
             Respuesta = leer.next();
-            
+
         } while (Respuesta.equalsIgnoreCase("si"));
-        
-        return new Pais(pais);
+
+        paises.forEach((lugar) -> System.out.println(lugar));
 
     }
-        public void mostrar(){
-         for (String Pais: paises) {
-             System.out.println(Pais.toString());
-        }
-    }
 
+    
 
     public void ordenarAlfabeticamente() {
-        ArrayList<String> paiS = new ArrayList(paises);
+        ArrayList<Pais>p = new ArrayList(paises);
+        ArrayList<String> paiS = new ArrayList();
+        for (Pais pais : p) {
+            paiS.add(pais.getPais());
+        }
         Collections.sort(paiS);
         for (String nacione : paiS) {
-            System.out.println(nacione.toString());
+            System.out.println(nacione);
         }
 
     }
@@ -61,23 +61,25 @@ public class PaisServicios {
     public void eliminarPais() {
         System.out.println("que pais quiere eliminar?");
         String rta = leer.next();
-        Iterator<String> intr = paises.iterator();
+        Iterator<Pais> intr = paises.iterator();
         boolean bandera = false;
         while (intr.hasNext()) {
-            if (rta.equalsIgnoreCase(intr.next())) {
+            if (rta.equalsIgnoreCase(intr.next().getPais())) {
                 intr.remove();
                 bandera = true;
-                
+
             }
         }
         if (bandera) {
-            System.out.println("no se encontro");
-             ordenarAlfabeticamente();
-        }
-        else{
+            System.out.println("se encontro");
+            System.out.println("------------------");
+            ordenarAlfabeticamente();
+        } else {
             System.out.println("no se encontro el pais");
         }
     }
 
 }
-/****/
+/**
+ * *
+ */
